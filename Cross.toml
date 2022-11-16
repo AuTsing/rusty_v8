@@ -1,5 +1,5 @@
 [target.aarch64-linux-android]
-image = "cross:aarch64-linux-android-0.2.1"
+image = "build_rusty_v8"
 
 [build.env]
 passthrough = [
