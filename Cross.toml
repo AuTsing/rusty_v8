@@ -1,11 +1,15 @@
 [target.aarch64-linux-android]
-image = "cross:aarch64-linux-android-0.2.1"
+image = "763025696/cross-rs-aarch64-linux-android:ndkr23c-sdk29-android10"
+pre-build = [
+    "apt update && apt install -y python3 libglib2.0-dev xz-utils",
+    "mv /usr/bin/python /usr/bin/python2 && ln -s /usr/bin/python3 /usr/bin/python",
+]
 
 [build.env]
 passthrough = [
-    "V8_FROM_SOURCE",
+    "V8_FROM_SOURCE=1",
     "SCCACHE_ERROR_LOG",
     "SCCACHE_LOG",
     "SCCACHE_DIR",
-    "SCCACHE_IDLE_TIMEOUT"
+    "SCCACHE_IDLE_TIMEOUT",
 ]
